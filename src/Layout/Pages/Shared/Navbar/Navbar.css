@@ -1,0 +1,49 @@
+.nav-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+}
+nav a {
+    text-decoration: none;
+    padding: 15px;
+    font-weight: 700;
+}
+.hidden{
+    display: none;
+}
+.top{
+    top: 100px;
+    right: 0;
+}
+.top-m{
+    top: -1000px;
+}
+nav span{
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 700;
+}
+@media screen and (max-width: 600px) {
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+    nav a{
+        display: block;
+        color: white;
+    }
+    .hidden{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background-color: rgb(204, 255, 218);
+        flex-direction: column;
+        gap: 25px;
+        padding: 5px 25px 25px ;
+        z-index: 1;
+    }
+}
