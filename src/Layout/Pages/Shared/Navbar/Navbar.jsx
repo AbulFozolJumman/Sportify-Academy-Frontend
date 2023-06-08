@@ -30,7 +30,7 @@ const Navbar = () => {
                                 <a className='btn-ghost rounded-lg' href="#contact">Dashboard</a>
                                 <img className="h-12 rounded-full" src={user?.photoURL} alt="" />
                             </>
-                            : <a className='btn-ghost rounded-lg' href="#contact">Login</a>
+                            : <Link className='btn-ghost rounded-lg' to="/login">Login</Link>
                         }
                     </div>
                 </div>
