@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -64,7 +65,7 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p className="mt-4">Don&#39;t have an account? <a href="/signup" className="text-blue-500 font-semibold">Sign up here</a></p>
+        <p className="mt-4">Don&#39;t have an account? <Link to="/signUp" className="text-blue-500 font-semibold">Sign up here</Link></p>
         <div className="flex justify-center mt-6 space-x-2">
           <button onClick={handleGoogleLogin} className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4">
             Login with Google
