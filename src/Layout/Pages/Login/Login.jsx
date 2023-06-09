@@ -1,20 +1,40 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
+  const {userSignIn} = useContext(AuthContext)
+  const { register, handleSubmit, reset } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = (data) => {
-    // Handle login form submission
-    console.log(data);
-  };
+  const handleUserSignIn = data => {
+
+    userSignIn(data.email, data.password)
+    .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Login successfully.',
+          showConfirmButton: false,
+          timer: 1500
+      });
+        // navigate(from, { replace: true });
+        reset()
+
+    })
+    .catch(error => {
+        console.log(error.message);
+    })
+}
 
   const handleGoogleLogin = () => {
     // Handle Google login
@@ -28,7 +48,7 @@ const Login = () => {
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="max-w-md w-full p-6 bg-green-100 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(handleUserSignIn)} className="space-y-4">
           <div>
             <label htmlFor="email" className="block font-medium mb-1">Email</label>
             <input required type="email" id="email" {...register('email')} className="w-full border-gray-300 border rounded-lg py-2 px-3 focus:outline-none focus:ring focus:border-blue-300" />
