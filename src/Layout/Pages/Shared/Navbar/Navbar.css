@@ -40,7 +40,7 @@ nav span{
     }
     .nav-links{
         position: absolute;
-        background-color: rgb(204, 255, 218);
+        background-color: #dcfce7;
         flex-direction: column;
         gap: 25px;
         padding: 5px 25px 25px ;
