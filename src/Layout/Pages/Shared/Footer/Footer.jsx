@@ -1,5 +1,5 @@
-import { CgPhone, CgMail, CgInstagram } from "react-icons/cg";
-import { FaPinterest, FaFacebookSquare, FaMapMarkerAlt } from "react-icons/fa";
+import { CgPhone, CgMail } from "react-icons/cg";
+import { FaFacebookSquare, FaMapMarkerAlt, FaGithub, FaLinkedin } from "react-icons/fa";
 import logo from "../../../../assets/logo.png"
 
 const Footer = () => {
@@ -19,9 +19,9 @@ const Footer = () => {
                         <p className="flex items-center gap-2 font-medium"><span className="font-bold text-2xl"><CgMail></CgMail></span>sportifyacademy@gmail.com</p>
                     </div>
                     <div className="flex gap-4 mt-5 justify-start">
-                        <a className="font-bold text-3xl" href="#"><FaFacebookSquare /></a>
-                        <a className="font-bold text-3xl" href="#"><CgInstagram /></a>
-                        <a className="font-bold text-3xl" href="#"><FaPinterest /></a>
+                        <a target={"_blank"} rel="noreferrer" className="font-bold text-3xl" href="https://www.facebook.com/MDAFZumman/"><FaFacebookSquare /></a>
+                        <a target={"_blank"} rel="noreferrer" className="font-bold text-3xl" href="https://github.com/AbulFozolJumman/"><FaGithub /></a>
+                        <a target={"_blank"} rel="noreferrer" className="font-bold text-3xl" href="https://www.linkedin.com/in/abul-fozol-jumman-414734279/"><FaLinkedin /></a>
                     </div>
                 </div>
             </footer >
