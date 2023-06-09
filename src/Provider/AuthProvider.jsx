@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 
 // This is default AuthContext file to share value
@@ -33,6 +33,11 @@ const AuthProvider = ({ children }) => {
             return unsubscribe();
         }
     }, [reload])
+    
+    const userSignOut = () => {
+        setLoading(true)
+        return signOut(auth);
+    }
 
     const authInfo = {
         user,
@@ -40,6 +45,7 @@ const AuthProvider = ({ children }) => {
         setReload,
         userSignUp,
         updateUserProfile,
+        userSignOut,
     }
 
     return (
