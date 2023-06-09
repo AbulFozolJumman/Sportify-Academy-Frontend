@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 import Class from "./Class/Class";
 
-
 const Classes = () => {
     const { classes } = useContext(AuthContext)
 

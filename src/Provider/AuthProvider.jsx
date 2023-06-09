@@ -10,20 +10,19 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [reload, setReload] = useState(false);
-    const [classes, setClasses] = useState([]);
-    
+
     const userSignUp = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
-    
+
     const updateUserProfile = (name, photo) => {
         return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photo
         })
     }
-    
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
@@ -34,16 +33,40 @@ const AuthProvider = ({ children }) => {
             return unsubscribe();
         }
     }, [reload])
-    
+
     const userSignIn = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
-    
+
     const userSignOut = () => {
         setLoading(true)
         return signOut(auth);
     }
+
+    // Fetching data by useEffect for classes
+    const [classes, setClasses] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("classes.json");
+            const newData = await response.json();
+            setClasses(newData);
+        };
+
+        fetchData();
+    }, []);
+
+    // Fetching data by useEffect for instructors
+    const [instructors, setInstructors] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("instructors.json");
+            const newData = await response.json();
+            setInstructors(newData);
+        };
+
+        fetchData();
+    }, []);
 
     const authInfo = {
         user,
@@ -54,18 +77,8 @@ const AuthProvider = ({ children }) => {
         userSignIn,
         userSignOut,
         classes,
+        instructors
     }
-
-    // Fetching data by useEffect for classes
-    useEffect(() => {
-        const fetchData = async () => {
-          const response = await fetch("classes.json");
-          const newData = await response.json();
-          setClasses(newData);
-        };
-      
-        fetchData();
-      }, []);
 
     return (
         <AuthContext.Provider value={authInfo}>
