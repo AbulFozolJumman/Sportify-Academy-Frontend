@@ -43,7 +43,7 @@ const Navbar = () => {
                                 <div className='lg:flex lg:items-center' >
                                     <a className='btn-ghost rounded-lg' href="#contact">Dashboard</a>
                                     <div className='flex items-center'>
-                                    <div className='tooltip tooltip-bottom tooltip-info font-bold' data-tip={user?.displayName}>
+                                    <div className='tooltip tooltip-bottom tooltip-success font-bold' data-tip={user?.displayName}>
                                         <img className="h-16 rounded-full ml-3" src={user?.photoURL} alt="" />
                                     </div>
                                     <button onClick={handleSignOut} className="btn btn-ghost px-3"><span className="text-4xl text-green-500"><FaSignOutAlt></FaSignOutAlt></span></button>
