@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Jose Morinho",
+      "image": "https://www.mansworldindia.com/wp-content/uploads/2022/05/Jose-Mourinho-1.jpg",
+      "email": "joseMorinho@gmail.com"
+    },
+    {
+      "name": "Chandika Hathurusingha",
+      "image": "https://images.prothomalo.com/prothomalo-english/2023-02/b05bef03-64d1-4856-bcdf-825826ddd6ce/prothomalo_bangla_2023_01_207cf308_e0d7_4b21_958d_602e45a64ca6_3_hah.webp?w=1200&h=674g",
+      "email": "chandikaHathurusingha@gmail.com"
+    },
+    {
+      "name": "Li Yong Bo",
+      "image": "https://www.badmintonplanet.com/wp-content/uploads/2017/04/04-12-2017-badminton-news-li-yongbo.jpg",
+      "email": "LiYongBo@gmail.com"
+    },
+    {
+      "name": "Shaun Edwards",
+      "image": "https://t2.gstatic.com/licensed-image?q=tbn:ANd9GcSi-LkzFBPI83zUwJR1otD9Pnn8k-kamemJA_ho4wntuLGm7EcTw2vo4uMyXH_3MD5P",
+      "email": "shaunEdwards@gmail.com"
+    },
+    {
+      "name": "Larry Brown",
+      "image": "https://sportshub.cbsistatic.com/i/r/2016/07/08/08486a8b-88d7-40bf-8b11-76994042a5d3/thumbnail/1200x675/6e7ed459ace85295282cb4daa297bdd4/larry-brown.jpg",
+      "email": "larryBrown@gmail.com"
+    },
+    {
+      "name": "Scotty Bowman",
+      "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQCx3GmOkq--gnQkATZ4Th0GpkNhig8rgntS1EAonwF6ilPr68P",
+      "email": "scottyBowman@gmail.com"
+    }
+  ]

@@ -1,12 +1,12 @@
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import banner1 from "../../../../assets/banner1.png"
-import football from "../../../../assets/football.png"
-import cricket from "../../../../assets/cricket.png"
-import hockey from "../../../../assets/hockey.png"
-import badminton from "../../../../assets/badminton.png"
-import basketball from "../../../../assets/basketball.png"
-import rugby from "../../../../assets/rugby.png"
+import banner1 from "../../../../assets/BannerImg/banner1.png"
+import football from "../../../../assets/BannerImg/football.png"
+import cricket from "../../../../assets/BannerImg/cricket.png"
+import hockey from "../../../../assets/BannerImg/hockey.png"
+import badminton from "../../../../assets/BannerImg/badminton.png"
+import basketball from "../../../../assets/BannerImg/basketball.png"
+import rugby from "../../../../assets/BannerImg/rugby.png"
 
 const Banner = () => {
 
@@ -48,7 +48,7 @@ const Banner = () => {
 
     return (
         <div>
-            <div ref={sliderRef} className="keen-slider max-w-7xl mx-auto">
+            <div ref={sliderRef} className="keen-slider max-w-7xl mx-auto  mb-12">
                 <div className="keen-slider__slide number-slide1"><img className="w-full max-h-screen" src={banner1} alt="" /></div>
                 <div className="keen-slider__slide number-slide2"><img className="w-full max-h-screen" src={football} alt="" /></div>
                 <div className="keen-slider__slide number-slide3"><img className="w-full max-h-screen" src={basketball} alt="" /></div>

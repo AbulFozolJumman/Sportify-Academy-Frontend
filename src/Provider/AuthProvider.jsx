@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [reload, setReload] = useState(false);
+    const [classes, setClasses] = useState([]);
     
     const userSignUp = (email, password) => {
         setLoading(true)
@@ -52,7 +53,19 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         userSignIn,
         userSignOut,
+        classes,
     }
+
+    // Fetching data by useEffect for classes
+    useEffect(() => {
+        const fetchData = async () => {
+          const response = await fetch("classes.json");
+          const newData = await response.json();
+          setClasses(newData);
+        };
+      
+        fetchData();
+      }, []);
 
     return (
         <AuthContext.Provider value={authInfo}>
