@@ -36,8 +36,8 @@ const Navbar = () => {
                 <div className={`nav-links ${open ? 'top' : 'top-m'}`}>
                     <div className='lg:flex lg:items-center'>
                         <Link className='btn-ghost rounded-lg' to="/">Home</Link>
-                        <a className='btn-ghost rounded-lg' href="#about">Instructors</a>
-                        <a className='btn-ghost rounded-lg' href="#services">Classes</a>
+                        <Link className='btn-ghost rounded-lg' to="/allInstructors">Instructors</Link>
+                        <Link className='btn-ghost rounded-lg' to="/allClasses">Classes</Link>
                         {
                             user ? <>
                                 <div className='lg:flex lg:items-center' >

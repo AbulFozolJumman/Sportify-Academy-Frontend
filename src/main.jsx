@@ -10,6 +10,8 @@ import Home from './Layout/Pages/Home/Home/Home';
 import Login from './Layout/Pages/Login/Login';
 import SignUp from './Layout/Pages/SignUp/SignUp';
 import AuthProvider from './Provider/AuthProvider';
+import AllClasses from './Layout/Pages/AllClasses/AllClasses';
+import AllInstructors from './Layout/Pages/AllInstructors/AllInstructors';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/allClasses",
+        element: <AllClasses></AllClasses>
+      },
+      {
+        path: "/allInstructors",
+        element: <AllInstructors></AllInstructors>
       },
     ]
   },
