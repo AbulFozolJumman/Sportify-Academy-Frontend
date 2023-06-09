@@ -3,7 +3,7 @@
 const Class = ({ course}) => {
     const {image, name, instructor, price, seats} = course;
     return (
-        <div className="max-w-[400px] rounded shadow-lg mx-auto bg-green-100">
+        <div className="max-w-[400px] rounded shadow-lg mx-auto mb-3 bg-green-100">
             <img className="w-full rounded" src={image} alt={name} />
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{name}</div>
