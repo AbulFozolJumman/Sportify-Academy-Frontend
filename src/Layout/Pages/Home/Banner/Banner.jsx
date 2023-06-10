@@ -7,6 +7,7 @@ import hockey from "../../../../assets/BannerImg/hockey.png"
 import badminton from "../../../../assets/BannerImg/badminton.png"
 import basketball from "../../../../assets/BannerImg/basketball.png"
 import rugby from "../../../../assets/BannerImg/rugby.png"
+import Marquee from "react-fast-marquee"
 
 const Banner = () => {
 
@@ -48,6 +49,9 @@ const Banner = () => {
 
   return (
     <div>
+      <Marquee className="text-blue-600 text-3xl pt-2 pb-3 font-bold" pauseOnHover={true}>
+        ...Are you ready to take your summer camp experience to the next level? Look no further because Sportify Academy is here to make your holidays unforgettable!...
+      </Marquee>
       <div ref={sliderRef} className="keen-slider max-w-7xl mx-auto  mb-12 rounded">
         <div className="keen-slider__slide number-slide1"><img className="w-full max-h-screen" src={banner1} alt="" /></div>
         <div className="keen-slider__slide number-slide2"><img className="w-full max-h-screen" src={football} alt="" /></div>

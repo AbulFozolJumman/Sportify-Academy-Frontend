@@ -16,8 +16,8 @@ const Navbar = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })
-            .catch(error => console.log(error.message))
-    }
+            .catch(error => console.log(error.message)) 
+    } 
 
     return (
         <div className='bg-green-100'>
