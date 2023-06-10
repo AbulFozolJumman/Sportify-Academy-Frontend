@@ -1,31 +1,58 @@
-
-import { AiOutlineMenu } from "react-icons/ai";
-
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Dashboard = () => {
-    return (
-        <div className="drawer lg:drawer-open">
-            <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content flex flex-col">
-                <h2>Hello</h2>
-                <h2>Hello</h2>
-                <h2>Hello</h2>
-                <h2>Hello</h2>
-                <h2>Hello</h2>
-                <label htmlFor="my-drawer-2" className="btn drawer-button lg:hidden text-3xl font-bold absolute left-0 top-0"><AiOutlineMenu /></label>
+  const {user} = useContext(AuthContext);
 
-            </div>
-            <div className="drawer-side">
-                <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-64 h-full bg-green-100 text-base-content">
-                    {/* Sidebar content here */}
-                    <li><a>My Selected Classes</a></li>
-                    <li><a>My Enrolled Classes</a></li>
-                </ul>
+    // Fetching data by useEffect for getting user by email
+    const [userEmail, setUserEmail] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(`http://localhost:5000/user?email=${user?.email}`);
+            const newData = await response.json();
+            setUserEmail(newData);
+        };
 
-            </div>
-        </div>
-    );
+        fetchData();
+    }, [user?.email]);
+
+    const role = userEmail[0]?.role;
+  const renderButtons = () => {
+    switch (role) {
+      case 'student':
+        return (
+          <>
+            <button>My Selected Classes</button>
+            <button>My Enrolled Classes</button>
+          </>
+        );
+      case 'instructor':
+        return (
+          <>
+            <button>Add a Class</button>
+            <button>My Classes</button>
+          </>
+        );
+      case 'admin':
+        return (
+          <>
+            <button>Manage Classes</button>
+            <button>Manage Users</button>
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div>
+      <h2>Welcome to the Dashboard!</h2>
+      <div>{renderButtons()}</div>
+      {/* Render relevant information based on the selected button */}
+      {/* Additional components or logic here */}
+    </div>
+  );
 };
 
 export default Dashboard;

@@ -10,7 +10,7 @@ const Instructors = () => {
         <div className="py-12">
             <Slide><h2 className="text-4xl font-bold text-center text-blue-500 pb-12">Popular Instructors</h2></Slide>
             <Fade>
-                <div className="grid lg:grid-cols-3 grid-cols-1 gap-5 mx-auto max-w-7xl">
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-5 mx-auto max-w-7xl px-5 md:px-0">
                     {instructors.map((coach, index) => (
                         <Instructor key={index} coach={coach} />
                     ))}

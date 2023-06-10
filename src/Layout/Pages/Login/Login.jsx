@@ -41,47 +41,74 @@ const Login = () => {
       })
   }
 
-  // User Google sign in handler
-  const handleGoogleLogin = () => {
-    googleSignIn()
-      .then((result) => {
-        const googleUser = result.user;
-        console.log(googleUser);
-        setUser(googleUser);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Login successfully.',
-          showConfirmButton: false,
-          timer: 1500
+    // User Google sign in handler
+    const handleGoogleLogin = () => {
+      googleSignIn()
+        .then((result) => {
+          const googleUser = result.user;
+          console.log(googleUser);
+          setUser(googleUser);
+          const saveUser = { name: googleUser.displayName, email: googleUser.email, image: googleUser.photoURL, role: "student" }
+          fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'User created successfully.',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
+            })
+            .catch(error => console.log(error))
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-        navigate(from, { replace: true })
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
-  // User Github login handler
-  const handleGithubLogin = () => {
-    githubSignIn()
-      .then((result) => {
-        const githubUser = result.user;
-        setUser(githubUser);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Login successfully.',
-          showConfirmButton: false,
-          timer: 1500
+    };
+  
+    // User Github sign in handler
+    const handleGithubLogin = () => {
+      githubSignIn()
+        .then((result) => {
+          const githubUser = result.user;
+          setUser(githubUser);
+          const saveUser = { name: githubUser.displayName, email: "user@github.com", image: githubUser.photoURL, role: "student" }
+          fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'User created successfully.',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
+            })
+            .catch(error => console.log(error))
+        })
+        .catch((error) => {
+          console.log(error.message);
         });
-        navigate(from, { replace: true })
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
-
+    };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="max-w-md w-full p-6 bg-green-100 rounded-lg shadow-md">

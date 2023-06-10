@@ -5,7 +5,7 @@ import logo from "../../../../assets/logo.png"
 const Footer = () => {
     return (
         <div className="bg-green-100">
-            <footer className="footer p-10 bg-transparent px-5 lg:px-0 max-w-7xl mx-auto">
+            <footer className="footer p-10 bg-transparent px-5 md:px-0 max-w-7xl mx-auto">
                 <div>
                     <img className='h-[60px]' src={logo} alt="" />
                     <p className="font-medium text-2xl">Sportify Academy Ltd.</p>

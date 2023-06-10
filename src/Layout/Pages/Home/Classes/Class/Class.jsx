@@ -8,8 +8,8 @@ const Class = ({ course }) => {
   const buttonHoverBgColor = seats === 0 ? "" : "hover:bg-blue-700";
 
   return (
-    <div className={`max-w-[400px] rounded shadow-lg mx-auto mb-3 ${cardBgColor}`}>
-      <img className="w-full rounded" src={image} alt={name} />
+    <div className={`w-full md:max-w-[400px] rounded shadow-lg mx-auto mb-3 ${cardBgColor}`}>
+      <img className="w-full md:w-[400px] h-[250px] rounded" src={image} alt={name} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
         <p className="text-gray-700 text-base mb-2">

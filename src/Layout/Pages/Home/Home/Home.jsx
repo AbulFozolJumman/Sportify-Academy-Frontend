@@ -15,7 +15,7 @@ const Home = () => {
     <div className={` ${isDarkMode ? "dark" : ""}`}>
       <input
         type="checkbox"
-        className="toggle toggle-lg absolute top-8 right-[60px] lg:left-1/4"
+        className="toggle toggle-lg absolute top-8 right-[60px] md:left-1/4"
         checked={isDarkMode}
         onChange={toggleTheme}
       />

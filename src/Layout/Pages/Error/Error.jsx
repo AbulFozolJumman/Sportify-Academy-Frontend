@@ -7,7 +7,7 @@ export default function ErrorPage() {
     console.error(error);
 
     return (
-        <div className="rounded-lg bg-green-100 p-8 mx-5 lg:mx-auto my-12 max-w-3xl text-center border-gray-400">
+        <div className="rounded-lg bg-green-100 p-8 mx-5 md:mx-auto my-12 max-w-3xl text-center border-gray-400">
             <img className="block w-full" src="https://i.ibb.co/VWLVp8N/error.png" alt="" />
             <Slide>
                 <h2 className="my-5 text-5xl font-bold text-red-500">{error.statusText || error.message}</h2>

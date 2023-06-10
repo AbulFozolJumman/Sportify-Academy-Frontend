@@ -19,13 +19,28 @@ const SignUp = () => {
         console.log(loggedUser);
 
         updateUserProfile(data.name, data.photoURL).then(() => {
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'User created successfully.',
-            showConfirmButton: false,
-            timer: 1500
-          });
+          const saveUser = { name: data.name, email: data.email, image: data.photoURL, role: "student" }
+          console.log(saveUser);
+          fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+          })
+            .then(res => res.json())
+            .then(data => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'User created successfully.',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
+            })
           setReload(true)
         }
         ).catch(error => {
@@ -45,13 +60,28 @@ const SignUp = () => {
         const googleUser = result.user;
         console.log(googleUser);
         setUser(googleUser);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Login successfully.',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        const saveUser = { name: googleUser.displayName, email: googleUser.email, image: googleUser.photoURL, role: "student" }
+        fetch('http://localhost:5000/users', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(saveUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User created successfully.',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          })
+          .catch(error => console.log(error))
       })
       .catch((error) => {
         console.log(error.message);
@@ -64,13 +94,28 @@ const SignUp = () => {
       .then((result) => {
         const githubUser = result.user;
         setUser(githubUser);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Login successfully.',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        const saveUser = { name: githubUser.displayName, email: "user@github.com", image: githubUser.photoURL, role: "student" }
+        fetch('http://localhost:5000/users', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(saveUser)
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.insertedId) {
+              reset();
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User created successfully.',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          })
+          .catch(error => console.log(error))
       })
       .catch((error) => {
         console.log(error.message);

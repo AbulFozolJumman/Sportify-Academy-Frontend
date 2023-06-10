@@ -34,17 +34,17 @@ const Navbar = () => {
                 </div>
 
                 <div className={`nav-links ${open ? 'top' : 'top-m'}`}>
-                    <div className='lg:flex lg:items-center'>
+                    <div className='md:flex md:items-center'>
                         <Link className='btn-ghost rounded-lg' to="/">Home</Link>
                         <Link className='btn-ghost rounded-lg' to="/allInstructors">Instructors</Link>
                         <Link className='btn-ghost rounded-lg' to="/allClasses">Classes</Link>
                         {
                             user ? <>
-                                <div className='lg:flex lg:items-center' >
+                                <div className='md:flex md:items-center' >
                                     <Link className='btn-ghost rounded-lg' to="/dashboard">Dashboard</Link>
                                     <div className='flex items-center'>
                                     <div className='tooltip tooltip-bottom tooltip-success font-bold' data-tip={user?.displayName}>
-                                        <img className="h-16 rounded-full ml-3" src={user?.photoURL} alt="" />
+                                        <img className="h-16 w-16 rounded-full ml-3" src={user?.photoURL} alt="" />
                                     </div>
                                     <button onClick={handleSignOut} className="btn btn-ghost px-3"><span className="text-4xl text-blue-500"><FaSignOutAlt></FaSignOutAlt></span></button>
                                     </div>

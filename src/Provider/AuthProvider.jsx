@@ -69,7 +69,7 @@ const AuthProvider = ({ children }) => {
     const [classes, setClasses] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("classes.json");
+            const response = await fetch("http://localhost:5000/classes");
             const newData = await response.json();
             setClasses(newData);
         };
@@ -81,7 +81,7 @@ const AuthProvider = ({ children }) => {
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("instructors.json");
+            const response = await fetch("http://localhost:5000/users?role=instructors");
             const newData = await response.json();
             setInstructors(newData);
         };
