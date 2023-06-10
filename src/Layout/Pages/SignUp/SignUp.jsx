@@ -6,14 +6,13 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-  const { userSignUp, updateUserProfile, setReload } = useContext(AuthContext)
+  const { userSignUp, updateUserProfile, setReload, setUser, googleSignIn, githubSignIn } = useContext(AuthContext)
   const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   // Create User handler
   const handleUserSignUp = data => {
-
     userSignUp(data.email, data.password)
       .then(result => {
         const loggedUser = result.user;
@@ -26,7 +25,7 @@ const SignUp = () => {
             title: 'User created successfully.',
             showConfirmButton: false,
             timer: 1500
-        });
+          });
           setReload(true)
         }
         ).catch(error => {
@@ -39,10 +38,51 @@ const SignUp = () => {
       })
   }
 
+  // User Google sign in handler
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const googleUser = result.user;
+        console.log(googleUser);
+        setUser(googleUser);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Login successfully.',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  // User Github sign in handler
+  const handleGithubLogin = () => {
+    githubSignIn()
+      .then((result) => {
+        const githubUser = result.user;
+        setUser(githubUser);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Login successfully.',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  // Password eye btn for hide/show
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
+  // Password matching handler
   const handleToggleConfirmPassword = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
@@ -135,11 +175,11 @@ const SignUp = () => {
           <p>Already have an account? <Link to="/login" className="text-blue-500 font-semibold">Log in here</Link></p>
         </div>
         <div className="flex justify-center mt-6 space-x-2">
-          <button className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4">
+          <button onClick={handleGoogleLogin} className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4">
             Sign Up with Google
           </button>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2 px-4">
-            Sign Up with Facebook
+          <button onClick={handleGithubLogin} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2 px-4">
+            Sign Up with Github
           </button>
         </div>
       </div>

@@ -1,21 +1,27 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 
 // This is default AuthContext file to share value
 export const AuthContext = createContext();
 const auth = getAuth(app);
+// Firebase googleProvider
+const googleProvider = new GoogleAuthProvider();
+// Firebase githubProvider
+const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [reload, setReload] = useState(false);
 
+    // Firebase createUser by email and password
     const userSignUp = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
+    // Firebase updateUserData for update displayName and photoURL
     const updateUserProfile = (name, photo) => {
         return updateProfile(auth.currentUser, {
             displayName: name,
@@ -23,6 +29,7 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    // Firebase user auth state change observer
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
@@ -34,11 +41,25 @@ const AuthProvider = ({ children }) => {
         }
     }, [reload])
 
+    // Firebase signInWithEmailAndPassword by email and password
     const userSignIn = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
+    
+    // Firebase Google sign in
+    const googleSignIn = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
+    }
 
+    // Firebase Github sign in
+    const githubSignIn = () => {
+        setLoading(true)
+        return signInWithPopup(auth, githubProvider)
+    }
+
+    // Firebase user signOut
     const userSignOut = () => {
         setLoading(true)
         return signOut(auth);
@@ -68,13 +89,17 @@ const AuthProvider = ({ children }) => {
         fetchData();
     }, []);
 
+    // All the context value
     const authInfo = {
         user,
+        setUser,
         loading,
         setReload,
         userSignUp,
         updateUserProfile,
         userSignIn,
+        googleSignIn,
+        githubSignIn,
         userSignOut,
         classes,
         instructors
