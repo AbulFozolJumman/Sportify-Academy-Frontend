@@ -12,11 +12,13 @@ import SignUp from './Layout/Pages/SignUp/SignUp';
 import AuthProvider from './Provider/AuthProvider';
 import AllClasses from './Layout/Pages/AllClasses/AllClasses';
 import AllInstructors from './Layout/Pages/AllInstructors/AllInstructors';
+import ErrorPage from './Layout/Pages/Error/Error';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
