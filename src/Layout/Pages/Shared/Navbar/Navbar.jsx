@@ -20,7 +20,7 @@ const Navbar = () => {
     } 
 
     return (
-        <div className='bg-green-100'>
+        <div className='bg-green-100 z-10'>
             <nav className='flex items-center justify-between max-w-7xl mx-auto py-5'>
                 <img className='h-[60px]' src={logo} alt="" />
                 <div onClick={() => setOpen(!open)} className='hidden'>
@@ -41,7 +41,7 @@ const Navbar = () => {
                         {
                             user ? <>
                                 <div className='lg:flex lg:items-center' >
-                                    <a className='btn-ghost rounded-lg' href="#contact">Dashboard</a>
+                                    <Link className='btn-ghost rounded-lg' to="/dashboard">Dashboard</Link>
                                     <div className='flex items-center'>
                                     <div className='tooltip tooltip-bottom tooltip-success font-bold' data-tip={user?.displayName}>
                                         <img className="h-16 rounded-full ml-3" src={user?.photoURL} alt="" />

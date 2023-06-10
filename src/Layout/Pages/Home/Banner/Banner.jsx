@@ -49,7 +49,7 @@ const Banner = () => {
 
   return (
     <div>
-      <Marquee className="text-blue-600 text-3xl pt-2 pb-3 font-bold" pauseOnHover={true}>
+      <Marquee className="text-blue-600 text-3xl pt-2 pb-3 font-bold z-0" pauseOnHover={true}>
         ...Are you ready to take your summer camp experience to the next level? Look no further because Sportify Academy is here to make your holidays unforgettable!...
       </Marquee>
       <div ref={sliderRef} className="keen-slider max-w-7xl mx-auto  mb-12 rounded">

@@ -13,6 +13,7 @@ import AuthProvider from './Provider/AuthProvider';
 import AllClasses from './Layout/Pages/AllClasses/AllClasses';
 import AllInstructors from './Layout/Pages/AllInstructors/AllInstructors';
 import ErrorPage from './Layout/Pages/Error/Error';
+import Dashboard from './Layout/Pages/Dashboard/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/allInstructors",
         element: <AllInstructors></AllInstructors>
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>
       },
     ]
   },
