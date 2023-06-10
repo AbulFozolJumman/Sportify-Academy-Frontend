@@ -1,9 +1,12 @@
+import { Slide } from "react-awesome-reveal";
 import Marquee from "react-fast-marquee";
 
 const Facilities = () => {
     return (
         <div className="py-12">
-            <h2 className="text-4xl font-bold text-center text-blue-500 pb-12">Our Academy Facilities</h2>
+            <Slide>
+                <h2 className="text-4xl font-bold text-center text-blue-500 pb-12">Our Academy Facilities</h2>
+            </Slide>
             <Marquee>
                 <div className="bg-green-100 rounded mx-5 p-5">
                     <img className="w-[400px] h-[300px] rounded" src="https://i.ibb.co/SXNGNFT/PISTAS-NUEVO-PABELLON-BALONCESTO-PCA0456-3.jpg" />
@@ -14,7 +17,7 @@ const Facilities = () => {
                     <h3 className="pt-4 text-center font-semibold text-xl text-black">Outdoor Training Ground</h3>
                 </div>
                 <div className="bg-green-100 rounded mx-5 p-5">
-                <img className="w-[400px] h-[300px] rounded" src="https://cdn.resfu.com/scripts/tmp_images/dugout_m37d4ytk_poster.jpg?size=1000x&lossy=1" />
+                    <img className="w-[400px] h-[300px] rounded" src="https://cdn.resfu.com/scripts/tmp_images/dugout_m37d4ytk_poster.jpg?size=1000x&lossy=1" />
                     <h3 className="pt-4 text-center font-semibold text-xl text-black">Swimming Pool</h3>
                 </div>
                 <div className="bg-green-100 rounded mx-5 p-5">
