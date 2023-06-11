@@ -57,7 +57,7 @@ const Login = () => {
           });
           navigate(from, { replace: true });
           const saveUser = { name: googleUser.displayName, email: googleUser.email, image: googleUser.photoURL, role: "student" }
-          fetch('http://localhost:5000/users', {
+          fetch('https://sportify-academy-server.vercel.app/users', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'
@@ -100,7 +100,7 @@ const Login = () => {
           });
           navigate(from, { replace: true });
           const saveUser = { name: githubUser.displayName, email: "user@github.com", image: githubUser.photoURL, role: "student" }
-          fetch('http://localhost:5000/users', {
+          fetch('https://sportify-academy-server.vercel.app/users', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'

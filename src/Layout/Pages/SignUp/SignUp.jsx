@@ -21,7 +21,7 @@ const SignUp = () => {
         updateUserProfile(data.name, data.photoURL).then(() => {
           const saveUser = { name: data.name, email: data.email, image: data.photoURL, role: "student" }
           console.log(saveUser);
-          fetch('http://localhost:5000/users', {
+          fetch('https://sportify-academy-server.vercel.app/users', {
             method: 'POST',
             headers: {
               'content-type': 'application/json'
@@ -61,7 +61,7 @@ const SignUp = () => {
         console.log(googleUser);
         setUser(googleUser);
         const saveUser = { name: googleUser.displayName, email: googleUser.email, image: googleUser.photoURL, role: "student" }
-        fetch('http://localhost:5000/users', {
+        fetch('https://sportify-academy-server.vercel.app/users', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
@@ -95,7 +95,7 @@ const SignUp = () => {
         const githubUser = result.user;
         setUser(githubUser);
         const saveUser = { name: githubUser.displayName, email: "user@github.com", image: githubUser.photoURL, role: "student" }
-        fetch('http://localhost:5000/users', {
+        fetch('https://sportify-academy-server.vercel.app/users', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

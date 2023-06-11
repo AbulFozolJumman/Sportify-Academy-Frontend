@@ -5,7 +5,7 @@ const ManageUsers = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:5000/users');
+            const response = await fetch('https://sportify-academy-server.vercel.app/users');
             const data = await response.json();
             setUsersData(data);
         };

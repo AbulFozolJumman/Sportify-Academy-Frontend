@@ -18,7 +18,7 @@ const Class = ({ course }) => {
         <p className="text-gray-700 text-base mb-2">
           Available Seats: {seats}
         </p>
-        <p className="text-gray-700 text-base mb-2">Price: {price}</p>
+        <p className="text-gray-700 text-base mb-2">Price: ${price}</p>
       </div>
       <div className="px-6 py-4">
         <button

@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:5000/user?email=${user?.email}`);
+      const response = await fetch(`https://sportify-academy-server.vercel.app/user?email=${user?.email}`);
       const newData = await response.json();
       setUserEmail(newData);
     };

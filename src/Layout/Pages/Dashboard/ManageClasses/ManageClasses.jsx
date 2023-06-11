@@ -5,7 +5,7 @@ const ManageClasses = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:5000/classes');
+      const response = await fetch('https://sportify-academy-server.vercel.app/classes');
       const data = await response.json();
       setClassesData(data);
     };
@@ -46,7 +46,7 @@ const ManageClasses = () => {
               <td className="border px-4 py-2">{classItem?.instructor}</td>
               <td className="border px-4 py-2">{classItem?.email}</td>
               <td className="border px-4 py-2">{classItem?.seats}</td>
-              <td className="border px-4 py-2">{classItem?.price}</td>
+              <td className="border px-4 py-2">${classItem?.price}</td>
               <td className="border px-4 py-2">{classItem?.status}</td>
               <td className="border px-4 py-2 flex">
                 <button

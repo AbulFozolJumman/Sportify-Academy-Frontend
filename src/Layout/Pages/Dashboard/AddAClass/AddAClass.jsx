@@ -27,7 +27,7 @@ const AddAClass = () => {
 
         console.log(addClass);
 
-        fetch('http://localhost:5000/classes', {
+        fetch('https://sportify-academy-server.vercel.app/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

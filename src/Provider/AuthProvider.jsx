@@ -69,7 +69,7 @@ const AuthProvider = ({ children }) => {
     const [classes, setClasses] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("http://localhost:5000/classes");
+            const response = await fetch("https://sportify-academy-server.vercel.app/classes");
             const newData = await response.json();
             setClasses(newData);
         };
@@ -80,7 +80,7 @@ const AuthProvider = ({ children }) => {
     const [topClasses, setTopClasses] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("http://localhost:5000/topClasses");
+            const response = await fetch("https://sportify-academy-server.vercel.app/topClasses");
             const newData = await response.json();
             setTopClasses(newData);
         };
@@ -91,7 +91,7 @@ const AuthProvider = ({ children }) => {
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("http://localhost:5000/users?role=instructor");
+            const response = await fetch("https://sportify-academy-server.vercel.app/users?role=instructor");
             const newData = await response.json();
             setInstructors(newData);
         };
