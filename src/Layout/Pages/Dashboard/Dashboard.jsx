@@ -1,44 +1,86 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider';
+import ManageClasses from './ManageClasses/ManageClasses';
+import ManageUsers from './ManageUsers/ManageUsers';
+import SelectedClasses from './SelectedClasses/SelectedClasses';
+import EnrolledClasses from './EnrolledClasses/EnrolledClasses';
+import AddAClass from './AddAClass/AddAClass';
+import MyClasses from './MyClasses/MyClasses';
 
 const Dashboard = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-    // Fetching data by useEffect for getting user by email
-    const [userEmail, setUserEmail] = useState([]);
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch(`http://localhost:5000/user?email=${user?.email}`);
-            const newData = await response.json();
-            setUserEmail(newData);
-        };
+  const [userEmail, setUserEmail] = useState([]);
+  const [selectedComponent, setSelectedComponent] = useState(null);
 
-        fetchData();
-    }, [user?.email]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`http://localhost:5000/user?email=${user?.email}`);
+      const newData = await response.json();
+      setUserEmail(newData);
+    };
 
-    const role = userEmail[0]?.role;
+    fetchData();
+  }, [user?.email]);
+
+  const role = userEmail[0]?.role;
+
+  const handleButtonClick = (component) => {
+    setSelectedComponent(component);
+  };
+
   const renderButtons = () => {
     switch (role) {
       case 'student':
         return (
-          <>
-            <button>My Selected Classes</button>
-            <button>My Enrolled Classes</button>
-          </>
+          <div className="flex justify-center gap-5 mb-12">
+            <button
+              className="block font-bold py-2 px-4 rounded text-white hover:bg-blue-700 bg-blue-500"
+              onClick={() => handleButtonClick(<SelectedClasses />)}
+            >
+              My Selected Classes
+            </button>
+            <button
+              className="block font-bold py-2 px-4 rounded text-white hover:bg-blue-700 bg-blue-500"
+              onClick={() => handleButtonClick(<EnrolledClasses />)}
+            >
+              My Enrolled Classes
+            </button>
+          </div>
         );
       case 'instructor':
         return (
-          <>
-            <button>Add a Class</button>
-            <button>My Classes</button>
-          </>
+          <div className="flex justify-center gap-5 mb-12">
+            <button
+              className="block font-bold py-2 px-4 rounded text-white hover:bg-blue-700 bg-blue-500"
+              onClick={() => handleButtonClick(<AddAClass />)}
+            >
+              Add a Class
+            </button>
+            <button
+              className="block font-bold py-2 px-4 rounded text-white hover:bg-blue-700 bg-blue-500"
+              onClick={() => handleButtonClick(<MyClasses />)}
+            >
+              My Classes
+            </button>
+          </div>
         );
       case 'admin':
         return (
-          <>
-            <button>Manage Classes</button>
-            <button>Manage Users</button>
-          </>
+          <div className="flex justify-center gap-5 mb-12">
+            <button
+              className="block font-bold py-2 px-4 rounded text-white hover:bg-blue-700 bg-blue-500"
+              onClick={() => handleButtonClick(<ManageClasses />)}
+            >
+              Manage Classes
+            </button>
+            <button
+              className="block font-bold py-2 px-4 rounded text-white hover:bg-blue-700 bg-blue-500"
+              onClick={() => handleButtonClick(<ManageUsers />)}
+            >
+              Manage Users
+            </button>
+          </div>
         );
       default:
         return null;
@@ -46,11 +88,10 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Welcome to the Dashboard!</h2>
+    <div className='min-h-screen'>
+      <h2 className="text-4xl font-bold text-center text-blue-500 py-12">Welcome to the Dashboard!</h2>
       <div>{renderButtons()}</div>
-      {/* Render relevant information based on the selected button */}
-      {/* Additional components or logic here */}
+      {selectedComponent && <div>{selectedComponent}</div>}
     </div>
   );
 };
