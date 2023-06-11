@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -48,6 +48,14 @@ const Login = () => {
           const googleUser = result.user;
           console.log(googleUser);
           setUser(googleUser);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Login successfully.',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate(from, { replace: true });
           const saveUser = { name: googleUser.displayName, email: googleUser.email, image: googleUser.photoURL, role: "student" }
           fetch('http://localhost:5000/users', {
             method: 'POST',
@@ -67,6 +75,7 @@ const Login = () => {
                   showConfirmButton: false,
                   timer: 1500
                 });
+                navigate(from, { replace: true });
               }
             })
             .catch(error => console.log(error))
@@ -82,6 +91,14 @@ const Login = () => {
         .then((result) => {
           const githubUser = result.user;
           setUser(githubUser);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Login successfully.',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate(from, { replace: true });
           const saveUser = { name: githubUser.displayName, email: "user@github.com", image: githubUser.photoURL, role: "student" }
           fetch('http://localhost:5000/users', {
             method: 'POST',
@@ -147,10 +164,12 @@ const Login = () => {
         </form>
         <p className="mt-4">Don&#39;t have an account? <Link to="/signUp" className="text-blue-500 font-semibold">Sign up here</Link></p>
         <div className="flex justify-center mt-6 space-x-2">
-          <button onClick={handleGoogleLogin} className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4">
+          <button onClick={handleGoogleLogin} className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4 flex items-center gap-2">
+            <span><FaGoogle></FaGoogle></span>
             Login with Google
           </button>
-          <button onClick={handleGithubLogin} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2 px-4">
+          <button onClick={handleGithubLogin} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2 px-4 flex items-center gap-2">
+            <span><FaGithub></FaGithub></span>
             Login with Github
           </button>
         </div>

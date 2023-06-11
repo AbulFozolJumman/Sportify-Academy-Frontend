@@ -73,7 +73,17 @@ const AuthProvider = ({ children }) => {
             const newData = await response.json();
             setClasses(newData);
         };
+        fetchData();
+    }, []);
 
+    // Fetching data by useEffect for classes
+    const [topClasses, setTopClasses] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch("http://localhost:5000/topClasses");
+            const newData = await response.json();
+            setTopClasses(newData);
+        };
         fetchData();
     }, []);
 
@@ -81,7 +91,7 @@ const AuthProvider = ({ children }) => {
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("http://localhost:5000/users?role=instructors");
+            const response = await fetch("http://localhost:5000/users?role=instructor");
             const newData = await response.json();
             setInstructors(newData);
         };
@@ -102,6 +112,7 @@ const AuthProvider = ({ children }) => {
         githubSignIn,
         userSignOut,
         classes,
+        topClasses,
         instructors
     }
 

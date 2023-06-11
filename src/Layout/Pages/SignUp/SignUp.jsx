@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -220,11 +220,13 @@ const SignUp = () => {
           <p>Already have an account? <Link to="/login" className="text-blue-500 font-semibold">Log in here</Link></p>
         </div>
         <div className="flex justify-center mt-6 space-x-2">
-          <button onClick={handleGoogleLogin} className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4">
-            Sign Up with Google
+          <button onClick={handleGoogleLogin} className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg py-2 px-4 flex items-center gap-2">
+          <span><FaGoogle></FaGoogle></span>
+            Login with Google
           </button>
-          <button onClick={handleGithubLogin} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2 px-4">
-            Sign Up with Github
+          <button onClick={handleGithubLogin} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2 px-4 flex items-center gap-2">
+          <span><FaGithub></FaGithub></span>
+            Login with Github
           </button>
         </div>
       </div>

@@ -6,6 +6,7 @@ import SelectedClasses from './SelectedClasses/SelectedClasses';
 import EnrolledClasses from './EnrolledClasses/EnrolledClasses';
 import AddAClass from './AddAClass/AddAClass';
 import MyClasses from './MyClasses/MyClasses';
+import { Slide } from 'react-awesome-reveal';
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -89,7 +90,9 @@ const Dashboard = () => {
 
   return (
     <div className='min-h-screen'>
-      <h2 className="text-4xl font-bold text-center text-blue-500 py-12">Welcome to the Dashboard!</h2>
+      <Slide>
+        <h2 className="text-4xl font-bold text-center text-blue-500 py-12">Welcome to the Dashboard!</h2>
+      </Slide>
       <div>{renderButtons()}</div>
       {selectedComponent && <div>{selectedComponent}</div>}
     </div>

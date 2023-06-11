@@ -14,6 +14,7 @@ import AllClasses from './Layout/Pages/AllClasses/AllClasses';
 import AllInstructors from './Layout/Pages/AllInstructors/AllInstructors';
 import ErrorPage from './Layout/Pages/Error/Error';
 import Dashboard from './Layout/Pages/Dashboard/Dashboard';
+import PrivateRoute from './Router/PrivateRouter';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard></Dashboard>
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
       },
     ]
   },
