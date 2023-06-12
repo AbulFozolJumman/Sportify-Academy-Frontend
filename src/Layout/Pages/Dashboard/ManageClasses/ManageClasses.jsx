@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const ManageClasses = () => {
   const [classesData, setClassesData] = useState([]);
 
+  //   Using axios to fetch data 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://sportify-academy-server.vercel.app/classes');
-      const data = await response.json();
-      setClassesData(data);
+      try {
+        const response = await axios.get('https://sportify-academy-server.vercel.app/classes');
+        setClassesData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
 
     fetchData();
@@ -50,24 +55,27 @@ const ManageClasses = () => {
               <td className="border px-4 py-2">{classItem?.status}</td>
               <td className="border px-4 py-2 flex">
                 <button
-                  className={`${
-                    classItem?.status === 'approved' ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-700'
-                  } text-white font-bold py-2 px-4 rounded mr-2`}
+                  className={`${classItem?.status === 'approved' ? 'bg-gray-500' : 'bg-green-500 hover:bg-green-700'
+                    } text-white font-bold py-2 px-4 rounded mr-2`}
                   disabled={classItem?.status === 'approved' || classItem?.status === 'denied'}
                   onClick={() => handleApprove(classItem?.id)}
                 >
                   Approve
                 </button>
                 <button
-                  className={`${
-                    classItem?.status === 'approved' ? 'bg-gray-500' : 'bg-red-500 hover:bg-red-700'
-                  } text-white font-bold py-2 px-4 rounded mr-2`}
+                  className={`${classItem?.status === 'approved' ? 'bg-gray-500' : 'bg-red-500 hover:bg-red-700'
+                    } text-white font-bold py-2 px-4 rounded mr-2`}
                   disabled={classItem?.status === 'approved' || classItem?.status === 'denied'}
                   onClick={() => handleDeny(classItem?.id)}
                 >
                   Deny
                 </button>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button
+                  className={`${classItem?.status === 'approved' ? 'bg-gray-500' : 'bg-red-500 hover:bg-red-700'
+                    } text-white font-bold py-2 px-4 rounded mr-2`}
+                  disabled={classItem?.status === 'approved' || classItem?.status === 'denied'}
+                  onClick={() => handleDeny(classItem?.id)}
+                >
                   Feedback
                 </button>
               </td>

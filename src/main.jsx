@@ -15,6 +15,9 @@ import AllInstructors from './Layout/Pages/AllInstructors/AllInstructors';
 import ErrorPage from './Layout/Pages/Error/Error';
 import Dashboard from './Layout/Pages/Dashboard/Dashboard';
 import PrivateRoute from './Router/PrivateRouter';
+import { QueryClient, QueryClientProvider } from 'react-query';
+const queryClient = new QueryClient();
+
 
 const router = createBrowserRouter([
   {
@@ -52,8 +55,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
+    <AuthProvider><QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </AuthProvider>
+      </QueryClientProvider></AuthProvider>
   </React.StrictMode>,
 )
