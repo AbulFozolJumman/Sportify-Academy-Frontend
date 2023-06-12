@@ -20,6 +20,7 @@
     "react-awesome-reveal": "^4.2.3",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.0",
+    "react-helmet": "^6.1.0",
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
     "react-query": "^3.39.3",

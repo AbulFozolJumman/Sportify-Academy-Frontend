@@ -1,14 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../../Provider/AuthProvider";
+import {  useNavigate } from "react-router-dom";
 
 const Class = ({ course }) => {
   const { image, name, instructor, price, seats } = course;
   const [userEmail, setUserEmail] = useState([]);
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`https://sportify-academy-server.vercel.app/user?email=${user?.email}`);
+      const response = await fetch(
+        `https://sportify-academy-server.vercel.app/user?email=${user?.email}`
+      );
       const newData = await response.json();
       setUserEmail(newData);
     };
@@ -25,6 +29,12 @@ const Class = ({ course }) => {
   const buttonHoverBgColor = seats === 0 ? "" : "";
 
   const handleSelect = () => {
+    if (!user) {
+      // User is not logged in, navigate to login page
+      navigate("/login");
+      return;
+    }
+
     if (role === "student") {
       // Store selected class data in localStorage
       const selectedClassData = { image, name, instructor, price, seats };
@@ -47,22 +57,26 @@ const Class = ({ course }) => {
       <img className="w-full md:w-[400px] h-[250px] rounded" src={image} alt={name} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
-        <p className="text-gray-700 text-base mb-2">
-          Instructor: {instructor}
-        </p>
-        <p className="text-gray-700 text-base mb-2">
-          Available Seats: {seats}
-        </p>
+        <p className="text-gray-700 text-base mb-2">Instructor: {instructor}</p>
+        <p className="text-gray-700 text-base mb-2">Available Seats: {seats}</p>
         <p className="text-gray-700 text-base mb-2">Price: ${price}</p>
       </div>
       <div className="px-6 py-4">
-        <button
-          className={`font-bold py-2 px-4 rounded ${buttonTextColor} ${buttonBgColor} ${buttonHoverBgColor}`}
-          disabled={isButtonDisabled}
-          onClick={handleSelect}
-        >
-          {isButtonDisabled ? "Disabled" : role === "student" ? "Select" : "Disabled"}
-        </button>
+        {isButtonDisabled ? (
+          <button
+            className={`font-bold py-2 px-4 rounded ${buttonTextColor} ${buttonBgColor} ${buttonHoverBgColor}`}
+            disabled={isButtonDisabled}
+          >
+            Select
+          </button>
+        ) : (
+            <button
+              className={`font-bold py-2 px-4 rounded ${buttonTextColor} ${buttonBgColor} ${buttonHoverBgColor}`}
+              onClick={handleSelect}
+            >
+              Select
+            </button>
+        )}
       </div>
     </div>
   );

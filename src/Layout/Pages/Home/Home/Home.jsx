@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Classes from "../Classes/Classes";
 import Facilities from "../Facilities/Facilities";
 import Instructors from "../Instructors/Instructors";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -20,6 +21,9 @@ const Home = () => {
         onChange={toggleTheme}
       />
       <div className={`transition-colors duration-500 ${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+        <Helmet>
+          <title>Sportify Academy | Home</title>
+        </Helmet>
         <Banner></Banner>
         <Classes></Classes>
         <Instructors></Instructors>

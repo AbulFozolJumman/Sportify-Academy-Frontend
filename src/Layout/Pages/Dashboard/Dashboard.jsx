@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import ManageClasses from './ManageClasses/ManageClasses';
 import ManageUsers from './ManageUsers/ManageUsers';
-import SelectedClasses from './SelectedClasses/SelectedClasses';
 import EnrolledClasses from './EnrolledClasses/EnrolledClasses';
 import AddAClass from './AddAClass/AddAClass';
 import MyClasses from './MyClasses/MyClasses';
 import { Slide } from 'react-awesome-reveal';
+import SelectedClasses from './SelectedClasses/SelectedClasses';
+import { Helmet } from 'react-helmet';
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -90,6 +91,9 @@ const Dashboard = () => {
 
   return (
     <div className='min-h-screen'>
+      <Helmet>
+          <title>Sportify Academy | Dashboard</title>
+        </Helmet>
       <Slide>
         <h2 className="text-4xl font-bold text-center text-blue-500 py-12">Welcome to the Dashboard!</h2>
       </Slide>

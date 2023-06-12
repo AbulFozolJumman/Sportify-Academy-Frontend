@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Instructor from "../Home/Instructors/Instructor/Instructor";
 import { Fade, Slide } from "react-awesome-reveal";
+import { Helmet } from "react-helmet";
 
 
 const AllInstructors = () => {
@@ -9,6 +10,9 @@ const AllInstructors = () => {
 
     return (
         <div className="py-12">
+            <Helmet>
+                <title>Sportify Academy | All Instructors</title>
+            </Helmet>
             <Slide>
                 <h2 className="text-4xl font-bold text-center text-blue-500 pb-12">All Instructors</h2>
             </Slide>
