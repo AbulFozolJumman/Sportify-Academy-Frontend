@@ -1,7 +1,3 @@
-# b712-summer-camp-client-side-AbulFozolJumman
-
-![Sportify Academy](https://i.ibb.co/dPg8pK5/logo.png)
-
 # Sportify Academy
 
 ## Features
@@ -18,3 +14,4 @@
 
 ## Live Site Link - https://sportify-academy-676a4.web.app/
 
+## Live Site Link - https://strong-toffee-faae9f.netlify.app/
