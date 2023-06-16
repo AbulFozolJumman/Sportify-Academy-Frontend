@@ -1,3 +1,4 @@
+![Sportify Academy](https://i.ibb.co/dPg8pK5/logo.png)
 # Sportify Academy
 
 ## Features
