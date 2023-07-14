@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import Sponsors from "../Sponsors/Sponsors";
 import Gallery from "../Gallery/Gallery";
 import Location from "../Location/Location";
+import Tips from "../Tips/Tips";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -32,6 +33,7 @@ const Home = () => {
         <Instructors></Instructors>
         <Gallery></Gallery>
         <Facilities></Facilities>
+        <Tips></Tips>
         <Sponsors></Sponsors>
         <Location></Location>
       </div>
