@@ -52,7 +52,7 @@ const Banner = () => {
       <Marquee className="text-blue-600 text-3xl pt-2 pb-3 font-bold z-0" pauseOnHover={true}>
         ...Are you ready to take your summer camp experience to the next level? Look no further because Sportify Academy is here to make your holidays unforgettable!...
       </Marquee>
-      <div ref={sliderRef} className="keen-slider max-w-7xl mx-auto  mb-12 rounded">
+      <div ref={sliderRef} className="keen-slider max-w-7xl mx-auto mb-12 rounded">
         <div className="keen-slider__slide number-slide1"><img className="w-full max-h-screen" src={banner1} alt="" /></div>
         <div className="keen-slider__slide number-slide2"><img className="w-full max-h-screen" src={football} alt="" /></div>
         <div className="keen-slider__slide number-slide3"><img className="w-full max-h-screen" src={basketball} alt="" /></div>
