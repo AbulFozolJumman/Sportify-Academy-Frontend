@@ -18,7 +18,7 @@ const Gallery = () => {
             <Slide>
                 <h2 className="text-4xl font-bold text-center text-blue-500 pb-12">Photo Gallery</h2>
             </Slide>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 mx-5 lg:mx-0 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {galleryImages.map((image, index) => (
                 <img
                   key={index}
