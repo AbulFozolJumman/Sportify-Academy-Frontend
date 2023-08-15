@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const MyClasses = () => {
   const [selectedClasses, setSelectedClasses] = useState([]);
@@ -17,6 +18,13 @@ const MyClasses = () => {
     updatedClasses.splice(index, 1);
     setSelectedClasses(updatedClasses);
     localStorage.setItem("selectedClasses", JSON.stringify(updatedClasses));
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'Payment Done',
+      showConfirmButton: false,
+      timer: 1500
+    });
   };
 
   const handleDelete = (index) => {
@@ -24,6 +32,13 @@ const MyClasses = () => {
     updatedClasses.splice(index, 1);
     setSelectedClasses(updatedClasses);
     localStorage.setItem("selectedClasses", JSON.stringify(updatedClasses));
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'Deleted',
+      showConfirmButton: false,
+      timer: 1500
+    });
   };
 
   return (

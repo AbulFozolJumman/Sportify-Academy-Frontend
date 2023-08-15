@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../../Provider/AuthProvider";
 import {  useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Class = ({ course }) => {
   const { image, name, instructor, price, seats } = course;
@@ -22,7 +23,8 @@ const Class = ({ course }) => {
 
   const role = userEmail[0]?.role;
 
-  const cardBgColor = seats === 0 ? "bg-red-500" : "bg-green-100";
+  const cursor = seats === 0 ? "cursor-no-drop" : "";
+  const cardBgColor = seats === 0 ? "bg-green-100" : "bg-green-100";
   const isButtonDisabled = seats === 0 || role === "admin" || role === "instructor";
   const buttonTextColor = seats === 0 ? "text-white" : "text-white";
   const buttonBgColor = seats === 0 ? "bg-black" : "bg-blue-500";
@@ -49,29 +51,36 @@ const Class = ({ course }) => {
 
       selectedClasses.push(selectedClassData);
       localStorage.setItem("selectedClasses", JSON.stringify(selectedClasses));
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Selected',
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   };
 
   return (
-    <div className={`w-full md:max-w-[400px] rounded shadow-lg mx-auto mb-3 ${cardBgColor}`}>
-      <img className="w-full md:w-[400px] h-[250px] rounded" src={image} alt={name} />
+    <div className={`w-full md:max-w-[400px] rounded overflow-hidden shadow-lg mx-auto mb-3 ${cardBgColor}`}>
+      <img className="w-full md:w-[400px] h-[250px] rounded hover:scale-110" src={image} alt={name} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
-        <p className="text-gray-700 text-base mb-2">Instructor: {instructor}</p>
-        <p className="text-gray-700 text-base mb-2">Available Seats: {seats}</p>
-        <p className="text-gray-700 text-base mb-2">Price: ${price}</p>
+        <p className="text-green-600 shadow-lg text-base mb-2"><span className="font-bold">Instructor:</span> {instructor}</p>
+        <p className="text-green-600 shadow-lg text-base mb-2"><span className="font-bold">Available Seats:</span> {seats}</p>
+        <p className="text-green-600 shadow-lg text-base mb-2"><span className="font-bold">Price: </span>${price}</p>
       </div>
-      <div className="px-6 py-4">
+      <div className="px-6 py-4 text-right">
         {isButtonDisabled ? (
           <button
-            className={`font-bold py-2 px-4 rounded ${buttonTextColor} ${buttonBgColor} ${buttonHoverBgColor}`}
+            className={`font-bold py-2 px-4 rounded ${cursor} ${buttonTextColor} ${buttonBgColor} ${buttonHoverBgColor}`}
             disabled={isButtonDisabled}
           >
             Select
           </button>
         ) : (
             <button
-              className={`font-bold py-2 px-4 rounded ${buttonTextColor} ${buttonBgColor} ${buttonHoverBgColor}`}
+              className={`font-bold py-2 px-4 rounded ${cursor} ${buttonTextColor} ${buttonBgColor} ${buttonHoverBgColor}`}
               onClick={handleSelect}
             >
               Select

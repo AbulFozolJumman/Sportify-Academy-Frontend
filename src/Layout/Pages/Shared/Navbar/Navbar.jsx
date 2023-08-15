@@ -16,8 +16,8 @@ const Navbar = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })
-            .catch(error => console.log(error.message)) 
-    } 
+            .catch(error => console.log(error.message))
+    }
 
     return (
         <div className='bg-green-100 z-10'>
@@ -38,15 +38,15 @@ const Navbar = () => {
                         <Link className='btn-ghost rounded-lg' to="/">Home</Link>
                         <Link className='btn-ghost rounded-lg' to="/allInstructors">Instructors</Link>
                         <Link className='btn-ghost rounded-lg' to="/allClasses">Classes</Link>
+                        <Link className='btn-ghost rounded-lg' to="/dashboard">Dashboard</Link>
                         {
                             user ? <>
                                 <div className='md:flex md:items-center' >
-                                    <Link className='btn-ghost rounded-lg' to="/dashboard">Dashboard</Link>
                                     <div className='flex items-center'>
-                                    <div className='tooltip tooltip-bottom tooltip-success font-bold' data-tip={user?.displayName}>
-                                        <img className="h-16 w-16 rounded-full ml-3" src={user?.photoURL} alt="" />
-                                    </div>
-                                    <button onClick={handleSignOut} className="btn btn-ghost px-3"><span className="text-4xl text-blue-500"><FaSignOutAlt></FaSignOutAlt></span></button>
+                                        <div className='tooltip tooltip-bottom tooltip-success font-bold' data-tip={user?.displayName}>
+                                            <img className="h-16 w-16 rounded-full ml-3" src={user?.photoURL} alt="" />
+                                        </div>
+                                        <button onClick={handleSignOut} className="btn btn-ghost px-3"><span className="text-4xl text-blue-500"><FaSignOutAlt></FaSignOutAlt></span></button>
                                     </div>
                                 </div>
                             </>

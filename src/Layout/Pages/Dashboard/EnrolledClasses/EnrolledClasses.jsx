@@ -3,7 +3,7 @@
 const EnrolledClasses = () => {
     return (
         <div>
-            EnrolledClasses
+            <p className="text-center">You haven&#39;t enrolled to any classes yet.</p>
         </div>
     );
 };

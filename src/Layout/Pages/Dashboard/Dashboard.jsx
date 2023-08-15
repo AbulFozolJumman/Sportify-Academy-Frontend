@@ -92,11 +92,13 @@ const Dashboard = () => {
   return (
     <div className='min-h-screen'>
       <Helmet>
-          <title>Sportify Academy | Dashboard</title>
-        </Helmet>
+        <title>Sportify Academy | Dashboard</title>
+      </Helmet>
+      <hr className="border-dotted border-2 border-green-300 w-[300px] md:w-[480px] mx-auto mt-10"></hr>
       <Slide>
-        <h2 className="text-4xl font-bold text-center text-blue-500 py-12">Welcome to the Dashboard!</h2>
+        <h2 className="text-4xl font-bold text-center text-blue-500">Welcome to the Dashboard!</h2>
       </Slide>
+      <hr className="border-dotted border-2 border-green-300 w-[300px] md:w-[480px] mx-auto mb-8 mt-2"></hr>
       <div>{renderButtons()}</div>
       {selectedComponent && <div>{selectedComponent}</div>}
     </div>
