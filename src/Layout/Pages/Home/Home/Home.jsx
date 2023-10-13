@@ -8,6 +8,7 @@ import Sponsors from "../Sponsors/Sponsors";
 import Gallery from "../Gallery/Gallery";
 import Location from "../Location/Location";
 import Tips from "../Tips/Tips";
+import DownloadApp from "./DownloadApp/DownloadApp";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -20,7 +21,7 @@ const Home = () => {
     <div className={` ${isDarkMode ? "dark" : ""}`}>
       <input
         type="checkbox"
-        className="toggle toggle-lg absolute top-8 right-[60px] md:left-1/4"
+        className="toggle hidden toggle-lg absolute top-8 right-[60px] md:left-1/4"
         checked={isDarkMode}
         onChange={toggleTheme}
       />
@@ -33,6 +34,7 @@ const Home = () => {
         <Instructors></Instructors>
         <Gallery></Gallery>
         <Facilities></Facilities>
+        <DownloadApp></DownloadApp>
         <Tips></Tips>
         <Sponsors></Sponsors>
         <Location></Location>

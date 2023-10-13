@@ -27,7 +27,7 @@ const Facilities = () => {
                     <h3 className="pt-4 text-center font-semibold text-xl text-green-600">Gymnasium</h3>
                 </div>
                 <div className="bg-green-100 rounded mx-5 p-5">
-                    <img className="w-[400px] h-[300px] rounded" src="https://rmfcampslosangeles.com/wp-content/uploads/2020/02/collage-@leodavincipro-4610.jpg" />
+                    <img className="w-[400px] h-[300px] rounded" src="https://i.ibb.co/6mqcft2/dressing-room.jpg" />
                     <h3 className="pt-4 text-center font-semibold text-xl text-green-600">Dressing Room</h3>
                 </div>
                 <div className="bg-green-100 rounded mx-5 p-5">
