@@ -11,7 +11,7 @@ const Instructors = () => {
     <div className="py-10">
     <hr className="border-dotted border-2 border-green-300 w-[330px] mx-auto"></hr>
     <Slide>
-        <h2 className="text-4xl font-bold text-center text-blue-500">Popular Instructors</h2>
+        <h2 className="text-4xl font-bold text-center text-blue-500">Top Instructors</h2>
     </Slide>
     <hr className="border-dotted border-2 border-green-300 w-[330px] mx-auto mb-8 mt-2"></hr>
       <Fade duration={4000}>

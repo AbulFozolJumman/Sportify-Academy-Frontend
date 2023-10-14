@@ -10,7 +10,7 @@ const Classes = () => {
         <div className="py-10">
             <hr className="border-dotted border-2 border-green-300 w-[280px] mx-auto"></hr>
             <Slide duration={1300}>
-                <h2 className="text-4xl font-bold text-center text-blue-500">Popular Classes</h2>
+                <h2 className="text-4xl font-bold text-center text-blue-500">Top Classes</h2>
             </Slide>
             <hr className="border-dotted border-2 border-green-300 w-[280px] mx-auto mb-8 mt-2"></hr>
             <Fade duration={4000}>

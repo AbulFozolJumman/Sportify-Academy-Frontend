@@ -8,7 +8,8 @@ import Sponsors from "../Sponsors/Sponsors";
 import Gallery from "../Gallery/Gallery";
 import Location from "../Location/Location";
 import Tips from "../Tips/Tips";
-import DownloadApp from "./DownloadApp/DownloadApp";
+import DownloadApp from "../DownloadApp/DownloadApp";
+import SubscribeUs from "../SubscribeUs/SubscribeUs";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -34,10 +35,11 @@ const Home = () => {
         <Instructors></Instructors>
         <Gallery></Gallery>
         <Facilities></Facilities>
-        <DownloadApp></DownloadApp>
         <Tips></Tips>
         <Sponsors></Sponsors>
         <Location></Location>
+        <DownloadApp></DownloadApp>
+        <SubscribeUs></SubscribeUs>
       </div>
     </div>
   );
