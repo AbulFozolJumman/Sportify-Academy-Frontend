@@ -10,6 +10,7 @@ import Location from "../Location/Location";
 import Tips from "../Tips/Tips";
 import DownloadApp from "../DownloadApp/DownloadApp";
 import SubscribeUs from "../SubscribeUs/SubscribeUs";
+import FAQ from "../FAQ/FAQ";
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -36,10 +37,11 @@ const Home = () => {
         <Gallery></Gallery>
         <Facilities></Facilities>
         <Tips></Tips>
-        <Sponsors></Sponsors>
         <Location></Location>
         <DownloadApp></DownloadApp>
         <SubscribeUs></SubscribeUs>
+        <FAQ></FAQ>
+        <Sponsors></Sponsors>
       </div>
     </div>
   );
