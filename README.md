@@ -13,6 +13,6 @@
 
 > React router, DaisyUI, React hook form, React fast marquee, React awesome reveal, Firebase authentication, Vercel, MongoDB CRUD operations
 
-## Live Site Link - https://sportify-academy-676a4.web.app/
+## Live Site Link - https://sportify-academy.netlify.app/
 
-## Live Site Link - https://strong-toffee-faae9f.netlify.app/
+## Live Site Link - https://sportify-academy-676a4.web.app/
