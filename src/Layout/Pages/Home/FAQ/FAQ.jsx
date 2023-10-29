@@ -17,7 +17,7 @@ const FAQ = () => {
                     type="checkbox" name="collapse" id="collapse" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-[67px] w-[67px] hidden md:block transition-all duration-0 text-white bg-[#23A6F0]">
+                    className="h-[67px] w-[67px] display md:block transition-all duration-0 text-white bg-[#23A6F0]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
                 <div
@@ -33,7 +33,7 @@ const FAQ = () => {
                     type="checkbox" name="collapse2" id="collapse2" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-[67px] w-[67px] hidden md:block transition-all duration-0 text-white bg-[#23A6F0]">
+                    className="h-[67px] w-[67px] display md:block transition-all duration-0 text-white bg-[#23A6F0]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
                 <div
@@ -51,7 +51,7 @@ const FAQ = () => {
                     type="checkbox" name="collapse3" id="collapse3" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-[67px] w-[67px] hidden md:block transition-all duration-0 text-white bg-[#23A6F0]">
+                    className="h-[67px] w-[67px] display md:block transition-all duration-0 text-white bg-[#23A6F0]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
                 <div
@@ -67,7 +67,7 @@ const FAQ = () => {
                     type="checkbox" name="collapse4" id="collapse4" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-[67px] w-[67px] hidden md:block transition-all duration-0 text-white bg-[#23A6F0]">
+                    className="h-[67px] w-[67px] display md:block transition-all duration-0 text-white bg-[#23A6F0]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
                 <div
@@ -83,7 +83,7 @@ const FAQ = () => {
                     type="checkbox" name="collapse5" id="collapse5" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-[67px] w-[67px] hidden md:block transition-all duration-0 text-white bg-[#23A6F0]">
+                    className="h-[67px] w-[67px] display md:block transition-all duration-0 text-white bg-[#23A6F0]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
                 <div
@@ -101,7 +101,7 @@ const FAQ = () => {
                     type="checkbox" name="collapse6" id="collapse6" />
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor"
-                    className="h-[67px] w-[67px] hidden md:block transition-all duration-0 text-white bg-[#23A6F0]">
+                    className="h-[67px] w-[67px] display md:block transition-all duration-0 text-white bg-[#23A6F0]">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
                 <div
